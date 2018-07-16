@@ -1,9 +1,9 @@
 
 const Twitter = require("twitter");
 
-const twitConfig = require("./twit_config");
+const Config = require("./config");
 
-const T = new Twitter(twitConfig);
+const T = new Twitter(Config);
 
 console.log(T);
 
