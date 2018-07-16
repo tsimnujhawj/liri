@@ -1,4 +1,9 @@
 
-const Twit = require("twit");
+const Twitter = require("twitter");
 
-const config = require("./config");
+const twitConfig = require("./twit_config");
+
+const T = new Twitter(twitConfig);
+
+console.log(T);
+
