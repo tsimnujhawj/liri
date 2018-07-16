@@ -1,9 +1,21 @@
 
-const Twitter = require("twitter");
+const Twit = require("twit");
 
 const Config = require("./config");
 
-const T = new Twitter(Config);
+const T = new Twit(Config);
 
-console.log(T);
+let postText = {
+    status: "This is a message sent from Node.js!"
+}
 
+
+T.post("statuses/update", tweet, tweeted)
+
+function tweeted(error, tweet, response) {
+    if (error) {
+        console.log("ERROR: " + error)
+    } else {
+        console.log("It worked!");
+    }
+}
