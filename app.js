@@ -1,12 +1,14 @@
 
+require("dotenv").config();
+
 const Twit = require("twit");
 
-const Config = require("./config");
+const keys = require("./keys");
 
-const T = new Twit(Config);
+const T = new Twit(keys.twitter);
 
-let postText = {
-    status: "This is a message sent from Node.js!"
+let tweet = {
+    status: "Tweet from Node.js!"
 }
 
 
