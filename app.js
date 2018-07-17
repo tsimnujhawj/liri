@@ -5,7 +5,7 @@ const Twit = require("twit");
 
 const keys = require("./keys");
 
-const T = new Twit(keys.twitter);
+const T = new Twit(keys.twit);
 
 let tweet = {
     status: "Tweet from Node.js!"
