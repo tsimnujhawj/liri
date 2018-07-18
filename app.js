@@ -6,6 +6,7 @@ const keys = require("./keys");
 const fs = require("fs");
 const request = require("request");
 
+const lineDivide = "\r\n"
 let command = process.argv[2];
 let argu = process.argv;
 let userInput = [];
@@ -26,6 +27,13 @@ function getTweets() {
             let tweetLength = data.length;
             for (i = 0; i < tweetLength; i++) {
                 console.log(JSON.stringify(data[i].text + " --- POSTED ON: " + data[i].created_at, null, 2))
+                fs.appendFile("log.txt", data[i].text + " --- POSTED ON: " + data[i].created_at + lineDivide, function (error) {
+                    if (error) {
+                        console.log("ERROR: " + error);
+                    } else if (!error) {
+                        console.log("Data appended to log.txt")
+                    }
+                })
             }
         }
     }
@@ -56,6 +64,13 @@ function movie() {
                   console.log(ratings[i].Source + ": " + ratings[i].Value) 
                 }
               };
+              fs.appendFile("log.txt", body.Title + ", " + body.Year + ", " + body.Country + ", " + body.Actors + ", " + body.Plot + lineDivide, function (error) {
+                if (error) {
+                    console.log("ERROR: " + error);
+                } else if (!error) {
+                    console.log("Data appended to log.txt")
+                }
+            })
         }
     })
 }
@@ -77,6 +92,13 @@ function spotify() {
             console.log("Song: " + songName)
             console.log("Album: " + albumName)
             console.log("Song Preview: " + songPreview)
+            fs.appendFile("log.txt", artistName + ", " + songName + ", " + albumName + ", " + songPreview + lineDivide, function (error) {
+                if (error) {
+                    console.log("ERROR: " + error);
+                } else if (!error) {
+                    console.log("Data appended to log.txt")
+                }
+            })
             };
     })
 }
