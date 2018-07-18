@@ -1,3 +1,3 @@
 let foo = require("./app")
 
-foo.getTweets();
+console.log(foo.mytweets())
