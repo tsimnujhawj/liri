@@ -4,13 +4,16 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "my-tweets": "This is a test",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.0.0",
+    "inquirer": "^6.0.0",
     "twit": "^2.2.11",
     "twitter": "^1.7.1"
   }

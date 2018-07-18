@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 
 require("dotenv").config();
 
@@ -26,6 +28,7 @@ const T = new Twitter(keys.twitter);
 //     }
 // }
 
+
 let params = {
     screen_name: "bandanaCoder",
     count: 20
@@ -45,3 +48,8 @@ function gotTweets(error, data, response) {
         }
     }
 }
+
+
+// module.exports = function() {
+//     const args = "Hello"
+// }
