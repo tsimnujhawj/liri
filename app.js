@@ -80,7 +80,7 @@ function consoleStart() {
         case "my-tweets":
           getTweets();
           break;
-          case "movie-this":
+        case "movie-this":
           movie();
           break;
         case "spotify-this-song":
