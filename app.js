@@ -1,5 +1,6 @@
 
 require("dotenv").config();
+const Spotify = require("node-spotify-api");
 const Twitter = require("twitter");
 const keys = require("./keys");
 const fs = require("fs");
@@ -10,6 +11,7 @@ let argu = process.argv;
 let userInput = [];
 
 const T = new Twitter(keys.twitter);
+const S = new Spotify(keys.spotify);
 
 function getTweets() {
     let params = {
@@ -30,19 +32,17 @@ function getTweets() {
 }
 
 function movie() {
-    console.log("movie")
     stringArgu();
     userInput = userInput.split(" ").join("+");
     if (!userInput) {
         userInput = "Mr. Nobody";
     };
-    let queryUrl = "http://www.omdbapi.com/?t=" + userInput + "&y=&plot=short&apikey=trilogy";
+    let queryUrl = "http://www.omdbapi.com/?t=" + userInput + "&plot=short&apikey=trilogy";
     request(queryUrl, function (error, response, body) {
         if (error) {
             console.log("ERROR: " + error);
-        } else {
-            let body = (JSON.parse(body));
-            console.log(body);
+        } else if (!error) {
+            var body = (JSON.parse(body));
             console.log(body.Title + ", " + body.Year);
             console.log("Country: " + body.Country);
             console.log("Language: " + body.Language);
@@ -62,6 +62,21 @@ function movie() {
 
 function spotify() {
     console.log("spotify")
+    stringArgu();
+    if (!userInput) {
+        userInput = "The Sign";
+    };
+    S.search({ type: "track", query: userInput, limit: 1 }, function(error, data) {
+        if (error) {
+            console.log("ERROR: " + error);
+        } else if (!error) {
+            let artistName = data.tracks.items[0].artists[0].name;
+            let songName = data.tracks.items[0].name;
+            let songPreview = data.tracks.items[0].preview_url;
+            let albumName = data.tracks.items[0].album.name;
+            console.log(artistName + songName + songPreview + albumName);
+            };
+    })
 }
 
 function random() {
