@@ -1,7 +1,9 @@
-#!/usr/bin/env node
+
 
 
 require("dotenv").config();
+
+const fs = require("fs");
 
 const Twit = require("twit");
 
@@ -12,6 +14,7 @@ const keys = require("./keys");
 const TwitPost = new Twit(keys.twit);
 
 const T = new Twitter(keys.twitter);
+
 
 // let tweet = {
 //     status: "Tweet from Node.js!"
@@ -28,13 +31,12 @@ const T = new Twitter(keys.twitter);
 //     }
 // }
 
-
 let params = {
     screen_name: "bandanaCoder",
     count: 20
 }
 
-function getTweets() {
+module.exports = function getTweets() {
     T.get("statuses/user_timeline", params, gotTweets);
 }
 
