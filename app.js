@@ -61,10 +61,9 @@ function movie() {
 }
 
 function spotify() {
-    console.log("spotify")
     stringArgu();
     if (!userInput) {
-        userInput = "The Sign";
+        userInput = "The Sign Ace of Base";
     };
     S.search({ type: "track", query: userInput, limit: 1 }, function(error, data) {
         if (error) {
@@ -74,13 +73,26 @@ function spotify() {
             let songName = data.tracks.items[0].name;
             let songPreview = data.tracks.items[0].preview_url;
             let albumName = data.tracks.items[0].album.name;
-            console.log(artistName + songName + songPreview + albumName);
+            console.log("Artist: " + artistName);
+            console.log("Song: " + songName)
+            console.log("Album: " + albumName)
+            console.log("Song Preview: " + songPreview)
             };
     })
 }
 
 function random() {
-    console.log("random")
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (error) {
+            console.log("ERROR: " + error);
+        } else if (!error) {
+            let fileArr = data.split(",");
+            fileArr[1] = fileArr[1].split(" ");
+            command = fileArr[0];
+            userInput = fileArr[1];
+            consoleStart();
+        }
+    })
 }
 
 function stringArgu() {
