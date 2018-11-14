@@ -16,7 +16,7 @@ LIRI accepts four commands:
 * `do-what-it-says`
 
 After you have chosen your command, enter your desired parameter.
-* `my-tweets` <no parameters accepted>
-* `spotify-this-song` <YOUR SONG TITLE>
-* `movie-this` <YOUR MOVIE TITLE>
-* `do-what-it-says` <no parameters accepted>
+* `my-tweets <no parameters accepted>`
+* `spotify-this-song <YOUR SONG TITLE>`
+* `movie-this <YOUR MOVIE TITLE>`
+* `do-what-it-says <no parameters accepted>`
