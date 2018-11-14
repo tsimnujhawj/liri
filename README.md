@@ -1,5 +1,5 @@
 # LIRI
-Language Interpretation and Recognition Interface is a command line Node app that takes in commands and using an API, gives back information.
+Language Interpretation and Recognition Interface is a command line Node app that takes in a command and using an API, gives back information.
 
 ## Installation
 ```shell
